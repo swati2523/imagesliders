@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <title>How to create drag and drop image slider to change the position of the sequence of the images</title>
+
+    <link href =
+"https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+           rel = "stylesheet">
+
+   <script src =
+"https://code.jquery.com/jquery-1.10.2.js">
+   </script>
+
+   <script src =
+"https://code.jquery.com/ui/1.10.4/jquery-ui.js">
+   </script>
+
+
+    <link rel="stylesheet" href="style.css">
+    <script>
+        $(function() {
+            $( "#imageListId" ).sortable({
+            update: function(event, ui) {
+                getIdsOfImages();
+            }//end update
+            });
+        });
+
+        function getIdsOfImages() {
+            var values = [];
+            $('.listitemClass').each(function (index) {
+                values.push($(this).attr("id")
+                        .replace("imageNo", ""));
+            });
+            $('#outputvalues').val(values);
+       }
+   </script>
+  </head>
+  <body>
+    <h1>Image Slider</h1>
+    <div class="height"></div><br>
+    <div class="imageListId">
+        <div class="imageNo1" class="listitemClass">
+          <img src="images/Bohrs-model.jpg" alt="">
+        </div>
+        <div id="imageNo2" class = "listitemClass">
+          <img src="images/dil mange more.jpg" alt="">
+        </div>
+        <div id="imageNo3" class = "listitemClass">
+          <img src="images/atom.jpg" alt="">
+        </div>
+        <div id="imageNo4" class = "listitemClass">
+          <img src="images/env.jpg" alt="">
+        </div>
+        <div id="imageNo5" class = "listitemClass">
+          <img src="images/res.bmp" alt="">
+        </div>
+        <div id="imageNo6" class = "listitemClass">
+          <img src="images/vikram sir.jpg" alt="">
+        </div>
+
+        <div id="outputDiv">
+          <b>Output of ID's of images : </b>
+           <input id="outputvalues" type="text" value="" />
+         </div>
+    </div>
+  </body>
+</html>
